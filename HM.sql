@@ -42,9 +42,24 @@ FROM [Products]
     JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
 WHERE Suppliers.Country="Japan"
 
-7.Вывести заказы клиентов из USA, Germany, UK:
-номер_заказа
-полное_имя_клиента
-страна_клиента
-имя_менеджера
-фамилия_менеджера
+-- 7.Вывести заказы клиентов из USA, Germany, UK:
+-- номер_заказа
+-- полное_имя_клиента
+-- страна_клиента
+-- имя_менеджера
+-- фамилия_менеджера
+SELECT
+    Orders.OrderID,
+    Customers.CustomerName,
+    Customers.Country,
+    Employees.FirstName,
+    Employees.LastName
+FROM [Orders]
+    JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+    JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+    JOIN Products ON OrderDetails.ProductID=Products.ProductID
+    JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+    JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+WHERE Customers.Country="USA"
+    OR Customers.Country="Germany"
+    OR Customers.Country="UK"
