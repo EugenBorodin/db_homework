@@ -28,11 +28,19 @@ SET CustomerName = ''
 WHERE Country <> 'China';
 
 
-6.Вывести информацию о товарах с ценой от 10 до 150 EUR, которые были поставлены из Japan:
-название_товара
-цена_товара
-цена_со_скидкой_15_процентов
-название_поставщика
+-- 6.Вывести информацию о товарах с ценой от 10 до 150 EUR, которые были поставлены из Japan:
+-- название_товара
+-- цена_товара
+-- цена_со_скидкой_15_процентов
+-- название_поставщика
+SELECT
+    Products.ProductName,
+    Products.Price,
+    Products.Price * 0.85 AS Price_down15,
+    Suppliers.SupplierName
+FROM [Products]
+    JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+WHERE Suppliers.Country="Japan"
 
 7.Вывести заказы клиентов из USA, Germany, UK:
 номер_заказа
