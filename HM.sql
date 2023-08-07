@@ -22,7 +22,11 @@ FROM Suppliers
          JOIN Categories ON Products.CategoryID=Categories.CategoryID
 WHERE Categories.CategoryName = "Seafood"
 
-5.Очистить поле ContactName у всех клиентов не из China
+-- 5.Очистить поле ContactName у всех клиентов не из China
+UPDATE Customers
+SET CustomerName = ''
+WHERE Country <> 'China';
+
 
 6.Вывести информацию о товарах с ценой от 10 до 150 EUR, которые были поставлены из Japan:
 название_товара
