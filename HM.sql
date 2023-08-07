@@ -14,7 +14,13 @@ DELETE FROM Products
 WHERE
         Price >= 5 AND Price <=25
 
-4.Вывести список стран, которые поставляют морепродукты
+-- 4.Вывести список стран, которые поставляют морепродукты
+SELECT
+    Suppliers.Country
+FROM Suppliers
+         JOIN Products ON Suppliers.SupplierID=Products.SupplierID
+         JOIN Categories ON Products.CategoryID=Categories.CategoryID
+WHERE Categories.CategoryName = "Seafood"
 
 5.Очистить поле ContactName у всех клиентов не из China
 
