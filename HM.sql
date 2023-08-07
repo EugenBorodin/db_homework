@@ -9,7 +9,10 @@ FROM Products
 WHERE Categories.CategoryName="Beverages" AND Suppliers.Country="USA"
     LIMIT 2
 
-3.Удалить товары с ценой от 5 до 25 EUR
+-- 3.Удалить товары с ценой от 5 до 25 EUR
+DELETE FROM Products
+WHERE
+        Price >= 5 AND Price <=25
 
 4.Вывести список стран, которые поставляют морепродукты
 
