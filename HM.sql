@@ -1,4 +1,11 @@
 -- 1.Вывести название и стоимость в USD одного самого дорогого проданного товара
+SELECT
+    Products.ProductName,
+    Products.Price * 1.1 AS Price_usd
+FROM Products
+         JOIN OrderDetails ON Products.ProductID=OrderDetails.ProductID
+ORDER BY Price_usd DESC
+    LIMIT 1
 
 -- 2.Вывести два самых дорогих товара из категории Beverages из USA
 SELECT
